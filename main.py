@@ -4,9 +4,10 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired
+from secrets import TMDB_API_KEY, SECRET_KEY
 import requests
 
-TMDB_API_KEY = "3f0182be967bf9b731377774abfa8540"
+
 
 # API read access token: eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzZjAxODJiZTk2N2JmOWI3MzEzNzc3NzRhYmZhODU0MCIsInN1YiI6IjYyZTNhYWExZTI1ODYwMDA1Yzc2YzQ5YyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ._jHQkKRugn7eOr0gl1QqQ65eC_hen98UWiEk1a0TssY
 # API example url - https://api.themoviedb.org/3/movie/550?api_key=3f0182be967bf9b731377774abfa8540
@@ -23,7 +24,7 @@ class addForm(FlaskForm):
 
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = '8BYkEfBA6O6donzWlSihBXox7C0sKR6b'
+app.config['SECRET_KEY'] = SECRET_KEY
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///day64.db"
 Bootstrap(app)
 db = SQLAlchemy(app)
